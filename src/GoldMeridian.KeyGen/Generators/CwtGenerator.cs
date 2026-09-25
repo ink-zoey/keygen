@@ -226,12 +226,10 @@ public sealed class CwtGenerator : IIncrementalGenerator
         var accessibility = finalAcc.ToKeyword();
         var ns = valueType.ContainingNamespace.ToDisplayString();
 
-        var cwt = $"ConditionalWeakTable<{keyType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat)}, {valueType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat)}>";
+        var cwt = $"global::System.Runtime.CompilerServices.ConditionalWeakTable<{keyType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat)}, {valueType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat)}>";
         var source =
             $$"""
               #nullable enable
-
-              using System.Runtime.CompilerServices;
 
               namespace {{ns}};
 
